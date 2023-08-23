@@ -54,24 +54,25 @@ Score.level = function (score) {
  */
 
 Score.cleared_lines = function (noOfLines, score) {
+    const newScore = score;
     if (noOfLines === 1) {
-        score.score = score.score + (100 * score.level);
-        score.lastTetris = false;
+        newScore.score = score.score + (100 * score.level);
+        newScore.lastTetris = false;
     } else if (noOfLines === 2) {
-        score.score = score.score + (300 * score.level);
-        score.lastTetris = false;
+        newScore.score = score.score + (300 * score.level);
+        newScore.lastTetris = false;
     } else if (noOfLines === 3) {
-        score.score = score.score + (500 * score.level);
-        score.lastTetris = false;
+        newScore.score = score.score + (500 * score.level);
+        newScore.lastTetris = false;
     } else if (noOfLines === 4 && score.lastTetris === false) {
-        score.score = score.score + (800 * score.level);
-        score.lastTetris = true;
+        newScore.score = score.score + (800 * score.level);
+        newScore.lastTetris = true;
     } else if (noOfLines === 4 && score.lastTetris === true) {
-        score.score = score.score + (1200 * score.level);
-        score.lastTetris = true;
+        newScore.score = score.score + (1200 * score.level);
+        newScore.lastTetris = true;
     }
-    score.lines_cleared = score.lines_cleared + noOfLines;
-    return score;
+    newScore.lines_cleared = score.lines_cleared + noOfLines;
+    return newScore;
 };
 
 
@@ -85,8 +86,9 @@ Score.cleared_lines = function (noOfLines, score) {
  */
 
 Score.add_points = function (pointAdd, score) {
-    score.score = score.score + pointAdd;
-    return score;
+    const newScore = score;
+    newScore.score = score.score + pointAdd;
+    return newScore;
 };
 
 
